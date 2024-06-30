@@ -1,0 +1,122 @@
+[
+  {
+    "image": "../src/assets/images/property-02.jpg",
+    "category": "Appartement",
+    "price": "$600",
+    "address": "Douala Cameroon",
+    "details": {
+      "bedrooms": 8,
+      "bathrooms": 8,
+      "area": "545m2",
+      "floor": 3,
+      "parking": "6 spots"
+    }
+  },
+  {
+    "image": "../src/assets/images/property-01.jpg",
+    "category": "Modern",
+    "price": "$800",
+    "address": "Yaounde Cameroon",
+    "details": {
+      "bedrooms": 6,
+      "bathrooms": 5,
+      "area": "450m2",
+      "floor": 3,
+      "parking": "8 spots"
+    }
+  },
+
+  {
+    "image": "../src/assets/images/property-03.jpg",
+    "category": "Cave",
+    "price": "$540",
+    "address": "Douala Cameroon",
+    "details": {
+      "bedrooms": 3,
+      "bathrooms": 1,
+      "area": "250m2",
+      "floor": 1,
+      "parking": "1 spots"
+    }
+  },
+  {
+    "image": "../src/assets/images/property-02.jpg",
+    "category": "Countryside",
+    "price": "$600",
+    "address": "Douala Cameroon",
+    "details": {
+      "bedrooms": 8,
+      "bathrooms": 8,
+      "area": "545m2",
+      "floor": 3,
+      "parking": "6 spots"
+    }
+  },
+  {
+    "image": "../src/assets/images/property-01.jpg",
+    "category": "Modern",
+    "price": "$800",
+    "address": "Yaounde Cameroon",
+    "details": {
+      "bedrooms": 6,
+      "bathrooms": 5,
+      "area": "450m2",
+      "floor": 3,
+      "parking": "8 spots"
+    }
+  },
+
+  {
+    "image": "../src/assets/images/property-03.jpg",
+    "category": "Cave",
+    "price": "$540",
+    "address": "Douala Cameroon",
+    "details": {
+      "bedrooms": 3,
+      "bathrooms": 1,
+      "area": "250m2",
+      "floor": 1,
+      "parking": "1 spots"
+    }
+  },
+  {
+    "image": "../src/assets/images/property-02.jpg",
+    "category": "Menuisier",
+    "price": "$600",
+    "address": "Douala Cameroon",
+    "details": {
+      "bedrooms": 8,
+      "bathrooms": 8,
+      "area": "545m2",
+      "floor": 3,
+      "parking": "6 spots"
+    }
+  },
+  {
+    "image": "../src/assets/images/property-01.jpg",
+    "category": "Peintre",
+    "price": "$800",
+    "address": "Yaounde Cameroon",
+    "details": {
+      "bedrooms": 6,
+      "bathrooms": 5,
+      "area": "450m2",
+      "floor": 3,
+      "parking": "8 spots"
+    }
+  },
+
+  {
+    "image": "../src/assets/images/property-03.jpg",
+    "category": "Electro",
+    "price": "$540",
+    "address": "Douala Cameroon",
+    "details": {
+      "bedrooms": 3,
+      "bathrooms": 1,
+      "area": "250m2",
+      "floor": 1,
+      "parking": "1 spots"
+    }
+  }
+]
