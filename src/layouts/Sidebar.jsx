@@ -5,25 +5,28 @@ import '../assets/css/nucleo-icons.css';
 import { FaTimes, FaGem } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const Sidenav = () => {
+const Sidebar = () => {
   return ( 
-    <div className="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3" id="sidenav-main">
+    <aside className="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3" id="sidenav-main">
       <div className="sidenav-header"> 
         <i className="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
         <div className="navbar-brand m-0" to="/">
           <img src={logoct} className="navbar-brand-img h-100" alt="main_logo" />
-          <span className="ms-1 font-weight-bold">Soft UI Dashboard</span>
+          <span className="ms-1 font-weight-bold">FreeHouse</span>
         </div>
       </div>
       
-      <hr className="horizontal dark mt-0" />
+      <hr className="horizontal dark mt-0"/>
 
       <div className="collapse navbar-collapse w-auto max-height-vh-100 h-100" id="sidenav-collapse-main">
        
         <ul className="navbar-nav">
           <li className="nav-item">
-            <div className="nav-link" to="/dashboard">
-              <span className="nav-link-text ms-1">Dashboard</span>
+          <div className="nav-link" to="/tables">
+              <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <FaGem className="text-dark text-gradient" />
+              </div>
+              <span className="nav-link-text ms-1">Home</span>
             </div>
           </li>
           <li className="nav-item">
@@ -31,7 +34,7 @@ const Sidenav = () => {
               <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <FaGem className="text-dark text-gradient" />
               </div>
-              <span className="nav-link-text ms-1">Tables</span>
+              <span className="nav-link-text ms-1">Chat</span>
             </div>
           </li>
           <li class="nav-item">
@@ -39,13 +42,13 @@ const Sidenav = () => {
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
              
             </div>
-            <span class="nav-link-text ms-1">Billing</span>
+            <span class="nav-link-text ms-1">Publier</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link  " href="../pages/virtual-reality.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              
+              <FaGem className="text-dark text-gradient"/>
             </div>
             <span class="nav-link-text ms-1">Virtual Reality</span>
           </a>
@@ -110,8 +113,8 @@ const Sidenav = () => {
           Upgrade to pro
         </a>
       </div>
-    </div>
+    </aside>
   );
 };
 
-export default Sidenav;
+export default Sidebar;

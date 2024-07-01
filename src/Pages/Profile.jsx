@@ -68,7 +68,7 @@ function Profile() {
                         <div className="col-12 col-xl-4">
                             <div className="card h-100">
                                 <div className="card-header pb-0 p-3">
-                                    <h6 className="mb-0">Platform Settings</h6>
+                                    <h6 className="mb-0">Mes Favoris </h6>
                                 </div>
                                 <div className="card-body p-3">
                                     <h6 className="text-uppercase text-body text-xs font-weight-bolder">Account</h6>

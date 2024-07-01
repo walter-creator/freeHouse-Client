@@ -2,6 +2,8 @@ import '../assets/css/soft-ui-dashboard.css';
 import '../assets/css/nucleo-icons.css';
 import imageUrl from '../assets/img/curved-images/curved14.jpg';
 
+import SignNav from '../layouts/SignNav';
+
 function SignUp() {
 
     const divStyleUp = {
@@ -10,76 +12,24 @@ function SignUp() {
         backgroundPosition: 'center'
       };
 
+
   return (
     <>
-       <div className="container position-sticky z-index-sticky top-0">
-            <div className="row">
-                <div className="col-12">
-                    
-                    <nav className="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
-                        <div className="container-fluid">
-                            <a className="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../pages/dashboard.html">
-                            Soft UI Dashboard
-                            </a>
-                            <button className="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon mt-2">
-                                <span className="navbar-toggler-bar bar1"></span>
-                                <span className="navbar-toggler-bar bar2"></span>
-                                <span className="navbar-toggler-bar bar3"></span>
-                            </span>
-                            </button>
-                            <div className="collapse navbar-collapse" id="navigation">
-                            <ul className="navbar-nav mx-auto">
-                                <li className="nav-item">
-                                <a className="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
-                                    <i className="fa fa-chart-pie opacity-6 text-dark me-1"></i>
-                                    Dashboard
-                                </a>
-                                </li>
-                                <li className="nav-item">
-                                <a className="nav-link me-2" href="../pages/profile.html">
-                                    <i className="fa fa-user opacity-6 text-dark me-1"></i>
-                                    Profile
-                                </a>
-                                </li>
-                                <li className="nav-item">
-                                <a className="nav-link me-2" href="../pages/sign-up.html">
-                                    <i className="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                                    Sign Up
-                                </a>
-                                </li>
-                                <li className="nav-item">
-                                <a className="nav-link me-2" href="../pages/sign-in.html">
-                                    <i className="fas fa-key opacity-6 text-dark me-1"></i>
-                                    Sign In
-                                </a>
-                                </li>
-                            </ul>
-                            <ul className="navbar-nav d-lg-block d-none">
-                                <li className="nav-item">
-                                <a href="https://www.creative-tim.com/product/soft-ui-dashboard" className="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Free download</a>
-                                </li>
-                            </ul>
-                            </div>
-                        </div>  
-                    </nav>
-                    
-                </div>
-            </div>
-       </div>
+       <SignNav/>
 
-       <section className="min-vh-100 mb-8">
-            <div className="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style={divStyleUp}>
-                <span className="mask bg-gradient-dark opacity-6"></span>
-                <div className="container">
-                    <div className="row justify-content-center">
-                    <div className="col-lg-5 text-center mx-auto">
-                        <h1 className="text-white mb-2 mt-5">Welcome!</h1>
-                        <p className="text-lead text-white">Use these awesome forms to login or create new account in your project for free.</p>
-                    </div>
-                    </div>
-                </div>
+       <div className="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style={divStyleUp}>
+        <span className="mask bg-gradient-dark opacity-6"> </span>
+        <div className="container">
+            <div className="row justify-content-center">
+            <div className="col-lg-5 text-center mx-auto">
+                <h1 className="text-white mb-2 mt-5">Welcome!</h1>
+                <p className="text-lead text-white">Utilise ce formulaire pour avoir un compte et dire adieux aux problemes de logement.</p>
             </div>
+            </div>
+        </div>
+    </div>
+       <section className="min-vh-100 mb-8">
+            
             <div className="container">
             <div className="row mt-lg-n10 mt-md-n11 mt-n10">
                 <div className="col-xl-4 col-lg-5 col-md-7 mx-auto">
@@ -89,7 +39,7 @@ function SignUp() {
                     </div>
                     <div className="row px-xl-5 px-sm-4 px-3">
                     <div className="col-3 ms-auto px-1">
-                        <a className="btn btn-outline-light w-100" href="javascript:;">
+                        <a className="btn btn-outline-light w-100" href="javascript:;"> 
                         <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink32">
                             <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                             <g id="facebook-3" transform="translate(3.000000, 3.000000)" fill-rule="nonzero">

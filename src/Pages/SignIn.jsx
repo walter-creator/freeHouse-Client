@@ -2,6 +2,8 @@
 import '../assets/css/soft-ui-dashboard.css';
 import '../assets/css/nucleo-icons.css';
 import imageUrl from '../assets/img/curved-images/curved6.jpg';
+import Sidenav from '../layouts/Sidebar';
+
 
 function SignIn() {
 
@@ -13,7 +15,7 @@ function SignIn() {
 
     return (
       <>
-       <div className="container position-sticky z-index-sticky top-0">
+       {/* <div className="container position-sticky z-index-sticky top-0">
             <div className="row">
                 <div className="col-12">
                     
@@ -67,7 +69,8 @@ function SignIn() {
                     
                 </div>
             </div>
-       </div>
+       </div> */}
+       <Sidenav/>
        <main className="main-content  mt-0">
             <section>
             <div className="page-header min-vh-75">
