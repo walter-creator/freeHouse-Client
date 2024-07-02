@@ -10,19 +10,19 @@ function SignUp() {
         backgroundImage: `url(${imageUrl})`,
         backgroundSize: 'cover', 
         backgroundPosition: 'center'
-      };
+    };
 
 
   return (
     <>
        <SignNav/>
 
-       <div className="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style={divStyleUp}>
+       <div className="page-headers align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style={divStyleUp}>
         <span className="mask bg-gradient-dark opacity-6"> </span>
         <div className="container">
             <div className="row justify-content-center">
             <div className="col-lg-5 text-center mx-auto">
-                <h1 className="text-white mb-2 mt-5">Welcome!</h1>
+                <h1 className="text-white mb-2 mt-5">Bienvenue!</h1>
                 <p className="text-lead text-white">Utilise ce formulaire pour avoir un compte et dire adieux aux problemes de logement.</p>
             </div>
             </div>
@@ -35,7 +35,7 @@ function SignUp() {
                 <div className="col-xl-4 col-lg-5 col-md-7 mx-auto">
                 <div className="card z-index-0">
                     <div className="card-header text-center pt-4">
-                    <h5>Register with</h5>
+                    <h5>Inscription</h5>
                     </div>
                     <div className="row px-xl-5 px-sm-4 px-3">
                     <div className="col-3 ms-auto px-1">
@@ -77,27 +77,22 @@ function SignUp() {
                     </div>
                     <div className="mt-2 position-relative text-center">
                         <p className="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">
-                        or
+                        ou
                         </p>
                     </div>
                     </div>
                     <div className="card-body">
                     <form role="form text-left">
                         <div className="mb-3">
-                        <input type="text" className="form-control" placeholder="Name" aria-label="Name" aria-describedby="email-addon"/>
+                        <input type="text" className="form-control" placeholder="Nom" aria-label="Name" aria-describedby="email-addon"/>
                         </div>
                         <div className="mb-3">
                         <input type="email" className="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon"/>
                         </div>
                         <div className="mb-3">
-                        <input type="password" className="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon"/>
+                        <input type="password" className="form-control" placeholder="mot de passe" aria-label="Password" aria-describedby="password-addon"/>
                         </div>
-                        <div className="form-check form-check-info text-left">
-                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked/>
-                        <label className="form-check-label" for="flexCheckDefault">
-                            I agree the <a href="javascript:;" className="text-dark font-weight-bolder">Terms and Conditions</a>
-                        </label>
-                        </div>
+                       
                         <div className="text-center">
                         <button type="button" className="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
                         </div>

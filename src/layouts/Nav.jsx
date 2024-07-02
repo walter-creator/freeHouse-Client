@@ -1,8 +1,7 @@
 import React from "react";
 
-function Nav({titre}) {
-
-
+function Nav({titre, input}) {
+    
   return (
     <>
       <nav className="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
@@ -18,7 +17,7 @@ function Nav({titre}) {
             <div className="ms-md-auto pe-md-3 d-flex align-items-center">
                 <div className="input-group">
                 <span className="input-group-text text-body"><i className="fas fa-search" aria-hidden="true"></i></span>
-                <input type="text" className="form-control" placeholder="rechercher par ville..."/>
+                <input type="text" className="form-control" placeholder="rechercher par ville..." style={{ display: input}} />
                 </div>
             </div>
             <ul className="navbar-nav  justify-content-end">

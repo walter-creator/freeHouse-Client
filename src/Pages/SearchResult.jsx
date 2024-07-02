@@ -2,9 +2,10 @@
 import Sidebar from "../layouts/Sidebar";
 import imgSrc from "../assets/img/illustrations/rocket-white.png";
 
-// images impottation 
+// images importation 
 
 import ivanick from '../assets/img/ivancik.jpg';
+import decor from "../assets/img/home-decor-3.jpg";
 
 
 //components importations
@@ -13,7 +14,7 @@ import Nav from "../layouts/Nav";
 
 
 function App() {
- console.log(imgSrc)
+ 
     const rooms = [
         {
             title: "Moon City",
@@ -49,7 +50,7 @@ function App() {
   return (
     <>
     
-    <Sidebar/>
+    <Sidebar a2="active"/>
     
     <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
     <Nav titre="Resultat de la recherche"/>
@@ -66,7 +67,7 @@ function App() {
                         type = "chambre"
                         desc ="Tres belle chambres moderne avec espace cuisine et douche interne situe en bordu de route et 
                         et proche du campus universitaire"
-                        img = {imgSrc}
+                        img = {decor}
                     />
                 ))}
                     {/** mettons le RoomCard ici et bouclons  */}
@@ -76,7 +77,7 @@ function App() {
                         type = "chambre"
                         desc ="Tres belle chambres moderne avec espace cuisine et douche interne situe en bordu de route et 
                         et proche du campus universitaire"
-                        img = {imgSrc}
+                        img = {ivanick}
                     />
                 </div>
             </div>

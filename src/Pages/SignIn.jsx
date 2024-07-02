@@ -2,7 +2,7 @@
 import '../assets/css/soft-ui-dashboard.css';
 import '../assets/css/nucleo-icons.css';
 import imageUrl from '../assets/img/curved-images/curved6.jpg';
-import Sidenav from '../layouts/Sidebar';
+import SignNav from '../layouts/SignNav';
 
 
 function SignIn() {
@@ -70,7 +70,7 @@ function SignIn() {
                 </div>
             </div>
        </div> */}
-       <Sidenav/>
+       <SignNav/>
        <main className="main-content  mt-0">
             <section>
             <div className="page-header min-vh-75">
@@ -80,7 +80,7 @@ function SignIn() {
                             <div className="card card-plain mt-8">
                                 <div className="card-header pb-0 text-left bg-transparent">
                                     <h3 className="font-weight-bolder text-info text-gradient">Welcome back</h3>
-                                    <p className="mb-0">Enter your email and password to sign in</p>
+                                    <p className="mb-0">Entrer votre email et votre mot de passe pour vous connecter</p>
                                 </div>
                                 <div className="card-body">
                                     <form role="form">
@@ -103,8 +103,8 @@ function SignIn() {
                                 </div>
                                 <div className="card-footer text-center pt-0 px-lg-2 px-1">
                                     <p className="mb-4 text-sm mx-auto">
-                                        Don't have an account?
-                                        <a href="javascript:;" className="text-info text-gradient font-weight-bold">Sign up</a>
+                                        Vous n'avez pas de compte ?
+                                        <a href="javascript:;" className="text-info text-gradient font-weight-bold">Inscrivez vous </a>
                                     </p>
                                 </div>
                             </div>

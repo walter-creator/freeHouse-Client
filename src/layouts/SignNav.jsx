@@ -21,33 +21,27 @@ function SignNav() {
                             <div className="collapse navbar-collapse" id="navigation">
                             <ul className="navbar-nav mx-auto">
                                 <li className="nav-item">
-                                <a className="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
-                                    <i className="fa fa-chart-pie opacity-6 text-dark me-1"></i>
-                                    Dashboard
-                                </a>
+                                    <a className="nav-link me-2" href="/">
+                                        <i className="fa fa-user opacity-6 text-dark me-1"></i>
+                                        Accueil
+                                    </a>
                                 </li>
                                 <li className="nav-item">
-                                <a className="nav-link me-2" href="../pages/profile.html">
-                                    <i className="fa fa-user opacity-6 text-dark me-1"></i>
-                                    Profile
-                                </a>
+                                    <a className="nav-link me-2" href="SignUp">
+                                        <i className="fas fa-user-circle opacity-6 text-dark me-1"></i>
+                                        Sign Up
+                                    </a>
                                 </li>
                                 <li className="nav-item">
-                                <a className="nav-link me-2" href="../pages/sign-up.html">
-                                    <i className="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                                    Sign Up
-                                </a>
-                                </li>
-                                <li className="nav-item">
-                                <a className="nav-link me-2" href="../pages/sign-in.html">
-                                    <i className="fas fa-key opacity-6 text-dark me-1"></i>
-                                    Sign In
-                                </a>
+                                    <a className="nav-link me-2" href="signIn">
+                                        <i className="fas fa-key opacity-6 text-dark me-1"></i>
+                                        Sign In
+                                    </a>
                                 </li>
                             </ul>
                             <ul className="navbar-nav d-lg-block d-none">
                                 <li className="nav-item">
-                                <a href="#" className="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Free download</a>
+                                <a href="#" className="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Rejoignez nous</a>
                                 </li>
                             </ul>
                             </div>
