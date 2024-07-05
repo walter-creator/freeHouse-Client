@@ -3,12 +3,15 @@ import logoct from "../assets/img/logo-ct.png";
 import '../assets/css/soft-ui-dashboard.css';
 import '../assets/css/nucleo-icons.css';
 import { FaTimes, FaGem } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFolderPlus, faHouseLaptop, faMagnifyingGlassLocation, faComments, faIdCard,faRightToBracket } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
   
   a1 = a1+" nav-link"; a2 = a2+" nav-link"; a3 = a3+" nav-link"; a4 = a4+" nav-link";  a5 = a5+" nav-link";
-  a6 = a6+" nav-link"; a7 = a7+" nav-link"; a8 = a8+" nav-link";  console.log(a3);
+  a6 = a6+" nav-link"; a7 = a7+" nav-link"; a8 = a8+" nav-link"; 
   return (  
     <>
     
@@ -28,7 +31,8 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
           <li className="nav-item">
             <a className={a1} href="/tables">
                 <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <FaGem className="text-dark text-gradient" />
+                  <FontAwesomeIcon icon={faHouseLaptop} />
+                  {/* <FontAwesomeIcon icon={faCoffee}  /> */}
                 </div>
                 <span className="nav-link-text ms-1">Accueil</span>
             </a>
@@ -36,7 +40,7 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
           <li className="nav-item">
             <a className={a2} href="/searchResult">
                 <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <FaGem className="text-dark text-gradient" />
+                  <FontAwesomeIcon icon={faMagnifyingGlassLocation} />
                 </div>
                 <span className="nav-link-text ms-1">Rechercher</span>
             </a>
@@ -52,7 +56,7 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
           <li className="nav-item">
             <a className={a4} href='chat' >
               <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <FaGem className="text-dark text-gradient" />
+              <FontAwesomeIcon icon={faComments} />
               </div>
               <span className="nav-link-text ms-1">Discussion</span>
             </a>
@@ -60,7 +64,7 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
           <li className="nav-item">
           <a className={a5} href="/">
             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-             
+            <FontAwesomeIcon icon={faFolderPlus} />
             </div>
             <span className="nav-link-text ms-1">Publier une annonce </span>
           </a>
@@ -71,7 +75,7 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
         <li className="nav-item">
           <a className={a6} href="profile">
             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <FaGem className="text-dark text-gradient"/>
+              <FontAwesomeIcon icon={faIdCard} />
             </div>
             <span className="nav-link-text ms-1">Profile</span>
           </a>
@@ -79,7 +83,7 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
         <li className="nav-item">
           <a className={a7} href="/signIn">
             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              
+            <FontAwesomeIcon icon={faRightToBracket} />
             </div>
             <span className="nav-link-text ms-1">Sign In</span>
           </a>

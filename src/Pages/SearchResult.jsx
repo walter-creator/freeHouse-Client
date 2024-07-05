@@ -9,7 +9,7 @@ import decor from "../assets/img/home-decor-3.jpg";
 
 
 //components importations
-import RoomCard from "../component/RoomCard";
+import RoomCard from "../components/RoomCard";
 import Nav from "../layouts/Nav";
 
 

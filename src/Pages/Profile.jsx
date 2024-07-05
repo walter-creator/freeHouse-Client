@@ -6,7 +6,7 @@ import bruce from "../assets/img/bruce-mars.jpg";
 import kal from "../assets/img/kal-visuals-square.jpg"
 import decor from "../assets/img/home-decor-3.jpg";
 
-import Anonce from "../component/AnouncementCard";
+import Anonce from "../components/AnouncementCard";
 
 function Profile() {
     return (
