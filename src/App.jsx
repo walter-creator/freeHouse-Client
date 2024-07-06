@@ -6,15 +6,16 @@ import SignUp from "./Pages/SignUp";
 import SearchResult from "./Pages/SearchResult";
 import Discussion from "./Pages/Discussion";
 import Details from "./Pages/Details";
+import Home from "./Pages/Home";
 
 function App() {
-
 
   return (
     <>
     <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Profile />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/signIn" element={<SignIn />} />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/searchResult" element={<SearchResult />} />

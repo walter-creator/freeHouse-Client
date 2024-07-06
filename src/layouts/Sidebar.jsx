@@ -29,7 +29,7 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
        
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className={a1} href="/tables">
+            <a className={a1} href="/home">
                 <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                   <FontAwesomeIcon icon={faHouseLaptop} />
                   {/* <FontAwesomeIcon icon={faCoffee}  /> */}
@@ -73,7 +73,7 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
           <h6 className="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Pages de compte </h6>
         </li>
         <li className="nav-item">
-          <a className={a6} href="profile">
+          <a className={a6} href="/profile">
             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <FontAwesomeIcon icon={faIdCard} />
             </div>
