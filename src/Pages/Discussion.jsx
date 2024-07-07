@@ -66,15 +66,7 @@ function Discussion() {
                             impedit, quia iste possimus dicta consequuntur repellat amet suscipit ea,
                              debitis eos alias? Vitae doloribus id quidem molestiae impedit. </p>
                     </div>
-                    <div className="row bulle-right f-rigth">
-                      <p> Lorem ipsum dolor sit amet consectetur adipisicing
-                         elit. Odit soluta nulla numquam animi et,
-                          a eius dolore, harum totam fugiat iusto esse 
-                          officia impedit, illum nisi alias velit ipsa nesciunt
-                           rerum eum voluptates quod! Rem nemo eaque in aut quisquam,
-                            impedit, quia iste possimus dicta consequuntur repellat amet suscipit ea,
-                             debitis eos alias? Vitae doloribus id quidem molestiae impedit. </p>
-                    </div>
+                    
                     <div className="row bulle-right f-rigth">
                       <p> Lorem ipsum dolor sit amet consectetur adipisicing
                          elit. Odit soluta nulla numquam animi et,

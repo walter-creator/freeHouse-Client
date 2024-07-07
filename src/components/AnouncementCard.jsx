@@ -23,11 +23,11 @@ function AnouncementCard({titre, type, desc, img}) {
             <div className="d-flex align-items-center justify-content-between">
                                   
                 <div className="dropdown">
-                <button onclick="myFunction()" className="dropbtn">Actions </button>
-                <div id="myDropdown" className="dropdown-content">
-                    <a href="#">Supprimer</a>
-                    <a href="#">Modifier</a>
-                </div>
+                    <select onclick="myFunction()" className="dropbtn">Actions 
+                        <option value="">Action</option>
+                        <option value=""> <a href="#">Supprimer</a></option>
+                        <option value=""><a href="#">Modifier</a></option>    
+                    </select>
                 </div>
 
             </div>

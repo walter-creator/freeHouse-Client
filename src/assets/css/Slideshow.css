@@ -1,23 +1,21 @@
 /* src/components/Slideshow.css */
-body {
-    font-family: Arial;
-    margin: 0;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
+
   img {
     vertical-align: middle;
   }
   
+  .slideCadre{
+    margin: 20px;
+  }
+
   .container {
     position: relative;
-  }
+   
+   }
   
   .mySlides {
     display: none;
+    
   }
   
   .cursor {
@@ -84,4 +82,17 @@ body {
   .demo:hover {
     opacity: 1;
   }
+
+  .comments{
+    height: 50vh;
+    overflow-y: scroll;
+    border-bottom: solid 1px;
+  }
   
+  .recAnonce{
+    border-bottom: solid 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 0;
+    border-radius: 20px;
+  }

@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from '../layouts/Sidebar'; 
 import "../assets/css/style.css";
 
+// images importation
 import bruce from "../assets/img/bruce-mars.jpg";
 import kal from "../assets/img/kal-visuals-square.jpg"
 import decor from "../assets/img/home-decor-3.jpg";

@@ -1,79 +1,135 @@
-
+import React, { useState } from 'react';
 import Nav from "../layouts/Nav";
 import Sidebar from "../layouts/Sidebar";
 import Slideshow from "../components/Slideshow";
+import "../assets/css/Slideshow.css";
+import "../assets/css/chat.css";
+import RecAnonce from "../components/RecAnonce";
 
+// import "../assets/js/slideShow.js";
+// import images 
 
+import home from "../assets/img/home-decor-1.jpg";
 
 function Details() {
+  const [slideIndex, setSlideIndex] = useState(1);
+
+  const plusSlides = (n) => {
+    showSlides(slideIndex + n);
+  };
+
+  const currentSlide = (n) => {
+    showSlides(n);
+  };
+
+  const showSlides = (n) => {
+    let i;
+    const slides = document.getElementsByClassName("mySlides");
+    const dots = document.getElementsByClassName("demo");
+    const captionText = document.getElementById("caption");
+    if (n > slides.length) { n = 1 }
+    if (n < 1) { n = slides.length }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[n - 1].style.display = "block";
+    dots[n - 1].className += " active";
+    captionText.innerHTML = dots[n - 1].alt;
+    setSlideIndex(n);
+  };
+
 
   return (
     <>
         <Sidebar a3="active" /> 
         <main className="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
           <Nav titre="Plus de details" input="none"/>
+          <div className="row">
+            <div className="col-md-8">
+              <Slideshow/>
+              <div className="row m-5">
+                <p>Les reactions des autres utilisateurs pourront vous aidez a prendre une decision 
+                  plus eclaire. n'hesitez pas faire un commentaire pour vous exprimez aupres des autres utilisateurs</p>
+                <div className="message">
+                    <input type="text" className="message" placeholder="Votre commentaire  ..." />
+                    <button>Send</button>
+                  </div>
+                <div className="comments">
+                  
+                    <div className="row bulle-left f-rigth">
+                      <p> Lorem ipsum dolor sit amet consectetur adipisicing
+                         elit. Odit soluta nulla numquam animi et,
+                          a eius dolore, harum totam fugiat iusto esse 
+                      </p>
+                      <div className="row"> <hr className='m-2'/>
+                        <h6 className='text-light'>Sylvie </h6>
+                      </div>
+                    </div>
+                    <div className="row bulle-left f-rigth">
+                      <p> Lorem ipsum dolor sit amet consectetur adipisicing
+                         elit. Odit soluta nulla numquam animi et,
+                          a eius dolore, harum totam fugiat iusto esse 
+                      </p>
+                      <div className="row"> <hr className='m-2'/>
+                        <h6 className='text-light'>Moi </h6>
+                      </div>
+                    </div>
+                    <div className="row bulle-left f-rigth">
+                      <p> Lorem ipsum dolor sit amet consectetur adipisicing
+                         elit. Odit soluta nulla numquam animi et,
+                          a eius dolore, harum totam fugiat iusto esse 
+                      </p>
+                      <div className="row"> <hr className='m-2'/>
+                        <h6 className='text-light'>Sylvie </h6>
+                      </div>
+                    </div></div>
+                </div>
+              </div>
+              <div className="col-md-4 mt-1 ">
+                <h5> cite le combatant</h5>  
+                <p>Chambre</p> 
+                <hr className='m-2'/>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Officiis illo libero inventore recusandae iusto excepturi saepe molestias voluptate vel ad!</p>
+              <hr className='m-3'/>
+              <ul>
+                <li>Localisation:  Dschang - Foto</li>
+                <li>prix loyer: 15 000/mois</li>
+                <li>nombre de piece disponible: 5</li>
+              </ul>
+            </div>
+          </div>
             
-            <div className="container">
-              
-              <div className="mySlides">
-                <div className="numbertext">1 / 6</div>
-                <img src="img_woods_wide.jpg" style={{width: "100%"}}/>
-              </div>
+           <div className="row">
+            <h3> Recommendation</h3>
+            <a href="">
 
-              <div className="mySlides">
-                <div className="numbertext">2 / 6</div>
-                <img src="img_5terre_wide.jpg" style={{width: "100%"}}/>
-              </div>
+            </a>
+            
+            <RecAnonce className=""
+              titre = " Boyom City"
+              type= "Chambre"
+              desc ="Des gens differents ont des gouts differents, Testez un appartement totalement different et unique"
+              img = {home}
+            />
+            <RecAnonce className=""
+              titre = " Boyom City"
+              type= "Chambre"
+              desc ="Des gens differents ont des gouts differents, Testez un appartement totalement different et unique"
+              img = {home}
+            />
+            <RecAnonce className=""
+              titre = " Boyom City"
+              type= "appartement"
+              desc ="Des gens differents ont des gouts differents, Testez un appartement totalement different et unique"
+              img = {home}
+            />
+           
 
-              <div className="mySlides">
-                <div className="numbertext">3 / 6</div>
-                <img src="img_mountains_wide.jpg" style={{width: "100%"}}/>
-              </div>
-                
-              <div className="mySlides">
-                <div className="numbertext">4 / 6</div>
-                <img src="img_lights_wide.jpg" style={{width: "100%"}}/>
-              </div>
-
-              <div className="mySlides">
-                <div className="numbertext">5 / 6</div>
-                <img src="img_nature_wide.jpg" style={{width: "100%"}}/>
-              </div>
-                
-              <div className="mySlides">
-                <div className="numbertext">6 / 6</div>
-                <img src="img_snow_wide.jpg" style={{width: "100%"}}/>
-              </div>
-      
-              <a className="prev" onclick="plusSlides(-1)">❮</a>
-              <a className="next" onclick="plusSlides(1)">❯</a>
-
-              <div className="caption-container">
-                <p id="caption"></p>
-              </div>
-
-              {/* <div className="row">
-                <div className="column">
-                  <img className="demo cursor" src="img_woods.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods"/>
-                </div>
-                <div className="column">
-                  <img className="demo cursor" src="img_5terre.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre"/>
-                </div>
-                <div className="column">
-                  <img className="demo cursor" src="img_mountains.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords"/>
-                </div>
-                <div className="column">
-                  <img className="demo cursor" src="img_lights.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights"/>
-                </div>
-                <div className="column">
-                  <img className="demo cursor" src="img_nature.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise"/>
-                </div>    
-                <div className="column">
-                  <img className="demo cursor" src="img_snow.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains"/>
-                </div>
-              </div> */}
-            </div> 
-
+           </div> <hr />
         </main>
     </>
   )
