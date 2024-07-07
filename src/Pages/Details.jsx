@@ -5,6 +5,8 @@ import Slideshow from "../components/Slideshow";
 import "../assets/css/Slideshow.css";
 import "../assets/css/chat.css";
 import RecAnonce from "../components/RecAnonce";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
 // import "../assets/js/slideShow.js";
 // import images 
@@ -53,9 +55,9 @@ function Details() {
               <div className="row m-5">
                 <p>Les reactions des autres utilisateurs pourront vous aidez a prendre une decision 
                   plus eclaire. n'hesitez pas faire un commentaire pour vous exprimez aupres des autres utilisateurs</p>
-                <div className="message">
+                  <div className="message">
                     <input type="text" className="message" placeholder="Votre commentaire  ..." />
-                    <button>Send</button>
+                    <button> <FontAwesomeIcon   icon={faPaperPlane} /> </button>
                   </div>
                 <div className="comments">
                   
