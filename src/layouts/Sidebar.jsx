@@ -4,7 +4,7 @@ import '../assets/css/soft-ui-dashboard.css';
 import '../assets/css/nucleo-icons.css';
 import { FaTimes, FaGem } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFolderPlus, faHouseLaptop, faMagnifyingGlassLocation, faComments, faIdCard,faRightToBracket } from '@fortawesome/free-solid-svg-icons'
+import { faFolderPlus, faRocket,faHouseLaptop, faMagnifyingGlassLocation, faComments, faIdCard,faRightToBracket } from '@fortawesome/free-solid-svg-icons'
 // import { FontAwesomeIcon } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -29,7 +29,7 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
        
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className={a1} href="/home">
+            <a className={a1} href="/">
                 <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                   <FontAwesomeIcon icon={faHouseLaptop} />
                   {/* <FontAwesomeIcon icon={faCoffee}  /> */}
@@ -62,7 +62,7 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
             </a>
           </li>
           <li className="nav-item">
-          <a className={a5} href="/">
+          <a className={a5} href="/publier">
             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <FontAwesomeIcon icon={faFolderPlus} />
             </div>
@@ -91,7 +91,7 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
         <li className="nav-item">
           <a className={a8} href="SignUp">
             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              
+            <FontAwesomeIcon icon={faRocket} />
             </div>
             <span className="nav-link-text ms-1">Sign Up</span>
           </a>
