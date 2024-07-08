@@ -1,6 +1,6 @@
 import '../assets/css/soft-ui-dashboard.css';
 import '../assets/css/nucleo-icons.css';
-import imageUrl from '../assets/img/curved-images/curved14.jpg';
+import imageUrl from '../assets/img/hotel/hotel13.jpg';
 
 import SignNav from '../layouts/SignNav';
 
@@ -15,7 +15,7 @@ function SignUp() {
 
   return (
     <>
-       <SignNav/>
+       <SignNav link="/signIn" message="Connectez vous"/>
 
        <div className="page-headers align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style={divStyleUp}>
         <span className="mask bg-gradient-dark opacity-6"> </span>

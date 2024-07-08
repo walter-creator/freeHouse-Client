@@ -1,5 +1,5 @@
 
-function SignNav() {
+function SignNav({link, message}) {
 
   return (
     <div className="container position-sticky z-index-sticky top-0">
@@ -20,28 +20,12 @@ function SignNav() {
                             </button>
                             <div className="collapse navbar-collapse" id="navigation">
                             <ul className="navbar-nav mx-auto">
-                                <li className="nav-item">
-                                    <a className="nav-link me-2" href="/">
-                                        <i className="fa fa-user opacity-6 text-dark me-1"></i>
-                                        Accueil
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link me-2" href="SignUp">
-                                        <i className="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                                        Sign Up
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link me-2" href="signIn">
-                                        <i className="fas fa-key opacity-6 text-dark me-1"></i>
-                                        Sign In
-                                    </a>
-                                </li>
+                               
+                                
                             </ul>
                             <ul className="navbar-nav d-lg-block d-none">
                                 <li className="nav-item">
-                                <a href="#" className="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Rejoignez nous</a>
+                                <a href={link} className="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">{message}</a>
                                 </li>
                             </ul>
                             </div>

@@ -12,7 +12,7 @@ import Anonce from "../components/AnouncementCard";
 function Profile() {
     return (
     <>
-      <Sidebar a5="active"/>
+      <Sidebar a6="active"/>
       <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
         <div className="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
       

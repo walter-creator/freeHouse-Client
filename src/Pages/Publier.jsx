@@ -364,7 +364,7 @@ function Publier() {
 
   return (
     <>
-      <Sidebar a4="active" />
+      <Sidebar a5="active" /> 
       <main className="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
         <Nav titre="Publier" input="none" />
           <h3 className='m-3'>Mettez votre etablissement en ligne </h3>
