@@ -60,8 +60,7 @@ function Profile() {
                             <li>Boyom City    -  <span className="badge">3</span></li>
                             <li>Cite Blanche  -<span className="badge">0</span></li>
                           </ul>
-                        
-                        
+
                       </div>
                     </div>
                   </div>
@@ -152,6 +151,79 @@ function Profile() {
                           </div>
 
                         </div>
+                      </div>
+                    </div>
+                  </div>
+
+                    {/* Tableau contenant les notifications des annonces poste */}
+                  <div className="col-12 mt-4">
+                    <div className="card mb-4">
+                      <div className="card-header pb-0 p-3">
+                        <h6 className="mb-1">Mes Annonces </h6>
+                        <p className="text-sm">Consulter le statut de vos anonces </p>
+                      </div>
+                      <div className="card-body p-3">
+                      <table class="table p-5">
+                        <thead>
+                          <tr>
+                            <th>Titre</th>
+                            <th>date de publication</th>
+                            <th>Statut</th>
+                            
+                          </tr>
+                        </thead>
+                          <tbody>
+                            <tr>
+                              <td>Default</td>
+                              <td>Defaultson</td>
+                              <td>def@somemail.com</td>
+                              <td> 
+                                  <a className="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto " href="javascript:;">
+                                  plus de detail
+                                  <i className="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                  </a>
+                              </td>
+                            </tr>      
+                            <tr class="table-danger">
+                              <td>chambre de vain</td>
+                              <td> 12/12/22 </td>
+                              <td> Rejet </td>
+                              <td> 
+                                  <a className="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto " href="javascript:;">
+                                  plus de detail
+                                  <i className="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                  </a>
+                              </td>
+                            </tr>
+                            <tr class="table-success">
+                              <td> cite Success</td>
+                              <td>hier</td>
+                              <td>
+                                En ligne 
+                              </td>
+                              <td> 
+                                  <a className="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto " href="javascript:;">
+                                  plus de detail
+                                  <i className="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                  </a>
+                              </td>
+                            </tr>
+                           
+                            <tr class="table-dark">
+                              <td>my cite </td>
+                              <td>aujourd'hui</td>
+                              <td>En cours d'examination</td>
+                              <td> 
+                                  <a className="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto " href="javascript:;">
+                                  plus de detail
+                                  <i className="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                  </a>
+                              </td>
+                            </tr>
+
+                          </tbody>
+                        </table>
+
                       </div>
                     </div>
                   </div>

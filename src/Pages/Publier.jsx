@@ -8,9 +8,7 @@ import "../assets/css/Slideshow.css";
 const steps = ["type de logement","specification", 'identite du logement', 'Medias'];
 
 function Publier() {
-  //-----------------------------
-
-   // cette partie est dedie a la gestion des choix
+  
   const [selectedOption, setSelectedOption] = useState('');
   const [values, setValues] = useState({
     chambres: 1,
@@ -23,7 +21,7 @@ function Publier() {
     const choice = event.target.value;
     setSelectedOption(choice);
 
-    // Set default values based on the choice
+    // initialiser les valeur par defaut du choix  ---------------
     if (choice === 'chambre') {
       setValues({ chambres: 1, cuisines: 0, salons: 0, sallesDeBain: 0 });
     } else if (choice === 'studio') {
@@ -49,15 +47,23 @@ function Publier() {
 
   const numberOptions = Array.from({ length: 7 }, (_, i) => i);
 
-  // fin ------------------------
+  // fin  de la gestion dynamique des choix ------------------------
+
+
+  // Gestion des etapes -----------------------------------
   const [activeStep, setActiveStep] = useState(0);
+
+  // voici ou les donnees du formulaire sont reupere, dans formData.
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    username: '',
-    password: ''
+    type: selectedOption,
+    localisation: '',
+    standing: '',
+    description: '',
+    nb_chambre: 0,
+    nb_cuisine: 0,
+    nb_salon: 0,
+    nb_douche: 0,
+
   });
 
   const handleNext = () => {
@@ -79,12 +85,16 @@ function Publier() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission, e.g., send formData to a server
-    console.log('Form data submitted:', formData);
+    alert("Enregistree avec succes: "+ formData.type);
+    console.log(formData);
+    // console.log(selectedOption);
   };
 
   const getStepContent = (step) => {
     switch (step) {
-      case 0:
+
+      // Champ de l'etape 1: le choix du type de logement 
+      case 0: 
         return (
           <Box component="form" noValidate autoComplete="off">
             <div class="row">
@@ -94,7 +104,7 @@ function Publier() {
                 <label class="choice float-end">
                    <input
                     type="radio"
-                    name="accommodation-type"
+                    name="type"
                     value="chambre"
                     checked={selectedOption === 'chambre'}
                     onChange={handleOptionChange}
@@ -152,77 +162,69 @@ function Publier() {
           </div>
           </Box>
         );
-
-        case 1:
+         // champs de l'etape 2: les champs de specification de logement en fonction du choix precedent
+      case 1:
         return (
           <Box component="form" noValidate autoComplete="off" className='mt-3'>
             {selectedOption === 'appartement' && (
-          <div>
-              
-            <div>
-            <FormControl fullWidth margin="normal">
-              <InputLabel>Nombre de chambre</InputLabel>
-              <Select
-                name="nb_chambre"
-                value={values.chambres} onChange={handleInputChange}>
-                  <MenuItem> <em>none</em></MenuItem>
-                  {numberOptions.map((option) => (
-                    
-                    <MenuItem key={option} value={option}>{option}</MenuItem>
-                  ))}
-                onChange={handleChange}
-              </Select>
-            </FormControl>
-            </div>
-            <div> 
+            <>
               <FormControl fullWidth margin="normal">
-              <InputLabel>Nombre de cuisine</InputLabel>
-              <Select
-                name="nb_cuisine"
-                value={values.cuisines} onChange={handleInputChange}>
-                  <MenuItem> <em>none</em></MenuItem>
-                  {numberOptions.map((option) => (
-                    
-                    <MenuItem key={option} value={option}>{option}</MenuItem>
-                  ))}
-                onChange={handleChange}
-              </Select>
+                <InputLabel>Nombre de chambre</InputLabel>
+                <Select
+                  name="nb_chambre"
+                  value={values.chambres} onChange={handleInputChange}>
+                    <MenuItem> <em>none</em></MenuItem>
+                    {numberOptions.map((option) => (
+                      
+                      <MenuItem key={option} value={option}>{option}</MenuItem>
+                    ))}
+                  onChange={handleChange}
+                </Select>
               </FormControl>
-              
-            </div>
-            <div>
 
-            <FormControl fullWidth margin="normal">
-              <InputLabel>Nombre de salons</InputLabel>
-              <Select
-                name="nb_salons"
-                value={values.salons} onChange={handleInputChange}>
-                  <MenuItem> <em>none</em></MenuItem>
-                  {numberOptions.map((option) => (
-                    
-                    <MenuItem key={option} value={option}>{option}</MenuItem>
-                  ))}
-                onChange={handleChange}
-              </Select>
-            </FormControl>
-              
-            </div>
-            <div>
-            <FormControl fullWidth margin="normal">
-              <InputLabel>Nombre de salle de bain</InputLabel>
-              <Select
-                name="nb_sallesDeBain"
-                value={values.sallesDeBain} onChange={handleInputChange}>
-                  <MenuItem> <em>none</em></MenuItem>
-                  {numberOptions.map((option) => (
-                    
-                    <MenuItem key={option} value={option}>{option}</MenuItem>
-                  ))}
-                onChange={handleChange}
-              </Select>
-            </FormControl>
-            </div>
-          </div>
+                <FormControl fullWidth margin="normal">
+                <InputLabel>Nombre de cuisine</InputLabel>
+                <Select
+                  name="nb_cuisine"
+                  value={values.cuisines} onChange={handleInputChange}>
+                    <MenuItem> <em>none</em></MenuItem>
+                    {numberOptions.map((option) => (
+                      
+                      <MenuItem key={option} value={option}>{option}</MenuItem>
+                    ))}
+                  onChange={handleChange}
+                </Select>
+                </FormControl>
+
+                <FormControl fullWidth margin="normal">
+                  <InputLabel>Nombre de salons</InputLabel>
+                  <Select
+                    name="nb_salons"
+                    value={values.salons} onChange={handleInputChange}>
+                      <MenuItem> <em>none</em></MenuItem>
+                      {numberOptions.map((option) => (
+                        
+                        <MenuItem key={option} value={option}>{option}</MenuItem>
+                      ))}
+                    onChange={handleChange}
+                  </Select>
+                </FormControl>
+            
+                <FormControl fullWidth margin="normal">
+                  <InputLabel>Nombre de salle de bain</InputLabel>
+                  <Select
+                    name="nb_sallesDeBain"
+                    value={values.sallesDeBain} onChange={handleInputChange}>
+                      <MenuItem> <em>none</em></MenuItem>
+                      {numberOptions.map((option) => (
+                        
+                        <MenuItem key={option} value={option}>{option}</MenuItem>
+                      ))}
+                    onChange={handleChange}
+                  </Select>
+                </FormControl>
+            
+            </>
         )}
 
         {selectedOption === 'studio' && (
@@ -301,6 +303,8 @@ function Publier() {
 
           </Box>
         );
+      
+        //Champs de l'etape 3: les champs pour renseigner plus d'information sur l'identite de logement
       case 2:
         return (
           <Box component="form" noValidate autoComplete="off">
@@ -337,6 +341,7 @@ function Publier() {
                 <MenuItem value="Ultra-Moderne">Ultra-Moderne</MenuItem>
               </Select>
             </FormControl>
+
             <TextField
               fullWidth
               margin="normal"
@@ -350,6 +355,8 @@ function Publier() {
             />
           </Box>
         );
+      
+        //Champs de l'etape 3: le champ d'ajout des medias 
       case 3:
         return (
             <div className="row mt-5">
@@ -357,46 +364,61 @@ function Publier() {
                 <DragAndDropFileUpload  onFilesAdded={handleFilesAdded} />
             </div>
         );
+
       default:
         return 'Unknown step';
     }
   };
 
+
+  //------------ le return de la fonction publier --------------------//
   return (
     <>
       <Sidebar a5="active" /> 
       <main className="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
         <Nav titre="Publier" input="none" />
           <h3 className='m-3'>Mettez votre etablissement en ligne </h3>
-        <div style={{ width: '50%', margin: 'auto' }}>
-          <Stepper activeStep={activeStep} alternativeLabel>
+
+           {/* ----------- composant qui affiche la bar des etapes  ---------- */}
+
+           <Stepper activeStep={activeStep} alternativeLabel>
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
               </Step>
             ))}
           </Stepper> 
+          {/* -------------- fin de la bar des etapes ------------ */}
+
+
+        <div style={{ width: '50%', margin: 'auto' }}>
+          {/* -------------- Appel des elements du formulaire ---------------- */}
+         <form action="">
           {activeStep === steps.length ? (
-            <Typography variant="h5" gutterBottom>
-              Thank you for submitting the form!
-            </Typography>
-          ) : (
-            <div> 
-              {getStepContent(activeStep)} 
-              <Box display="flex" justifyContent="space-between" mt={2}>
-                <Button disabled={activeStep === 0} onClick={handleBack}>
-                  Back
-                </Button>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={activeStep === steps.length - 1 ? handleSubmit : handleNext}
-                >
-                  {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
-                </Button>
-              </Box>
-            </div>
-          )}
+              <Typography variant="h5" gutterBottom>
+                Formulaire soumis ! 
+              </Typography>
+            ) : (
+              <div> 
+                {getStepContent(activeStep)} 
+                <Box display="flex" justifyContent="space-between" mt={2}>
+                  <Button disabled={activeStep === 0} onClick={handleBack}>
+                    Back
+                  </Button>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    
+                    onClick={activeStep === steps.length - 1 ? handleSubmit : handleNext}
+                  >
+                    {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
+                  </Button>
+                </Box>
+              </div>
+            )}
+         </form>
+         {/* ----------------- Fin du formulaire --------------- */}
+
         </div>
       </main>
     </>
