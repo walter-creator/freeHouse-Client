@@ -2,9 +2,12 @@
 import Nav from "../layouts/Nav";
 import Sidebar from "../layouts/Sidebar";
 import "../assets/css/chat.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
 //images 
 import marie from "../assets/img/marie.jpg";
+
 
 function Discussion() {
 
@@ -89,7 +92,7 @@ function Discussion() {
                   
                   <div className="message">
                     <input type="text" className="message" placeholder="Votre message ici ..." />
-                    <button>Send</button>
+                    <button><FontAwesomeIcon   icon={faPaperPlane} /></button>
                   </div>
                   
                 </div>

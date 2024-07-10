@@ -7,6 +7,7 @@ import SearchResult from "./Pages/SearchResult";
 import Discussion from "./Pages/Discussion";
 import Details from "./Pages/Details";
 import Home from "./Pages/Home";
+import Publier from "./Pages/Publier";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/publier" element={<Publier />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/signIn" element={<SignIn />} />
             <Route path="/signUp" element={<SignUp />} />

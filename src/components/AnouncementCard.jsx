@@ -22,12 +22,9 @@ function AnouncementCard({titre, type, desc, img}) {
             </p>
             <div className="d-flex align-items-center justify-content-between">
                                   
-                <div className="dropdown">
-                    <select onclick="myFunction()" className="dropbtn">Actions 
-                        <option value="">Action</option>
-                        <option value=""> <a href="#">Supprimer</a></option>
-                        <option value=""><a href="#">Modifier</a></option>    
-                    </select>
+                <div class="ms-auto text-end">
+                    <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="far fa-trash-alt me-2"></i>Delete</a>
+                    <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
                 </div>
 
             </div>

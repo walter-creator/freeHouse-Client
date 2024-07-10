@@ -5,6 +5,8 @@ import Slideshow from "../components/Slideshow";
 import "../assets/css/Slideshow.css";
 import "../assets/css/chat.css";
 import RecAnonce from "../components/RecAnonce";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 
 // import "../assets/js/slideShow.js";
 // import images 
@@ -53,9 +55,9 @@ function Details() {
               <div className="row m-5">
                 <p>Les reactions des autres utilisateurs pourront vous aidez a prendre une decision 
                   plus eclaire. n'hesitez pas faire un commentaire pour vous exprimez aupres des autres utilisateurs</p>
-                <div className="message">
+                  <div className="message">
                     <input type="text" className="message" placeholder="Votre commentaire  ..." />
-                    <button>Send</button>
+                    <button> <FontAwesomeIcon   icon={faPaperPlane} /> </button>
                   </div>
                 <div className="comments">
                   
@@ -90,15 +92,18 @@ function Details() {
               </div>
               <div className="col-md-4 mt-1 ">
                 <h5> cite le combatant</h5>  
-                <p>Chambre</p> 
+                <p>Appartemet</p> <em>moderne</em>
                 <hr className='m-2'/>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Officiis illo libero inventore recusandae iusto excepturi saepe molestias voluptate vel ad!</p>
               <hr className='m-3'/>
               <ul>
                 <li>Localisation:  Dschang - Foto</li>
-                <li>prix loyer: 15 000/mois</li>
-                <li>nombre de piece disponible: 5</li>
+                <li>prix loyer: 35 000/mois</li>
+                <li>nombre de chambre: </li>
+                <li>nombre de douche: 1</li>
+                <li>nombre de cuisine: 1</li>
+                <li>nombre de salon: 2</li>
               </ul>
             </div>
           </div>
