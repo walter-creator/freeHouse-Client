@@ -7,7 +7,8 @@ import '../assets/css/animate.css';
 
 const Header = () => {
   return (
-    <div className="header-area header-sticky">
+    <div className="menu">
+      <div className="header-area header-sticky">
         <div className="container">
           <div className="row">
             <div className="col-12">
@@ -15,11 +16,19 @@ const Header = () => {
                 <a href="index.html" className="logo">
                   <h1>House</h1>
                 </a>
+                
+                <div className="search-bar">
+                  <div className="search-item">Anywhere</div>
+                  <div className="divider"></div>
+                  <div className="search-item">Work</div>
+                  <div className="divider"></div>
+                  <div className="search-item">Guests</div>
+                  <button className="search-button">
+                    <img src="../assets/react.svg" alt="Search" />
+                  </button>
+                </div>
+                
                 <ul className="nav">
-                  <li><a href="index.html" className="active">Home</a></li>
-                  <li><a href="properties.html">Properties</a></li>
-                  <li><a href="property-details.html">Property Details</a></li>
-                  <li><a href="contact.html">Contact Us</a></li>
                   <li><a href="#"><i className="fa fa-calendar"></i> My Home</a></li>
                 </ul>
                 <a className="menu-trigger">
@@ -29,6 +38,7 @@ const Header = () => {
             </div>
           </div>
         </div>
+      </div>
     </div>
   );
 }
