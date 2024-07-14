@@ -43,6 +43,8 @@ const FilterableContainer = ({ activeFilter }) => {
     { class: 'Chambre', label: 'Résidence Athéna', img: cham1 ,prix: 8000},
   ];
 
+  
+
   return (
     <div className="contain">
       {items.map((item, index) => {

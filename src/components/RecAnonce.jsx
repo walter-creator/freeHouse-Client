@@ -1,4 +1,5 @@
 
+// eslint-disable-next-line react/prop-types
 function RecAnonce({titre, type, desc, img}) {
 
     return (

@@ -21,12 +21,12 @@ function Home() {
   return (
     <> 
     <NavHome/>
-    <div class="overflow-hidden-x">
+    <div className="overflow-hidden-x">
         <SectionHome/>
-        <div class="container-fluid">
-          <div class="row">
-            <div class="home-shape-arrow">
-              <a href="#features" class="mouse-down"><i class="mdi mdi-arrow-down arrow-icon text-dark h5"></i></a>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="home-shape-arrow">
+              <a href="#features" className="mouse-down"><i className="mdi mdi-arrow-down arrow-icon text-dark h5"></i></a>
             </div>
           </div>
         </div>

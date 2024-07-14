@@ -624,10 +624,11 @@ html {
 }
 .navbar-custom .navbar-brand .logo-dark {
   display: none;
+  color: #00635a;
 }
 .navbar-custom .navbar-collapse .navbar-nav .nav-item .nav-link {
   font-size: 14.5px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255, 255, 255);
   margin: 0 14px;
   transition: all 0.5s;
   position: relative;
@@ -804,7 +805,7 @@ html {
 }
 
 .home-1 {
-  background-image: url(../images/home-1.png);
+  background-image: url(../img/free_house.png);
 }
 .home-1 .bg-overlay {
   background: linear-gradient(131deg, #2152ff 0%, transparent);
@@ -1595,6 +1596,7 @@ html {
   transition: all 0.4s ease;
   border-radius: 7px;
 }
+
 .social-icon li a:hover {
   background-color: white;
   color: #49c6e5;
