@@ -16,29 +16,20 @@ function SignIn() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+//   const [error, setError] = useState("");
   const [token, setToken] = useLocalStorage("token", null);
 
-  const loginMutation = useMutation((data) => signin(data), {
-    onSuccess: (data) => {
-      setToken(data.token);
-    },
-    onError: (error) => {
-        if (!!error.status && error.status == 401)
-            return setError("Identifiants incorrectes!");
-          return setError(
-            "Une érreur est survenu, veillez vérrifier votre accès au réseau"
-          );
-    },
-   
-  });
 
 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setError("");
-    await loginMutation.mutateAsync({ email, password });
+    console.log({ email, password });
+    const response = await signin({ email, password });
+    setToken(response.token);
+    
+   // navigate to home page
+    window.location.href = "/";
     
 
   };
@@ -63,7 +54,7 @@ function SignIn() {
                       </p>
                     </div>
                     <div className="card-body">
-                      <form role="form" onSubmit={handleSubmit}>
+                      <form role="form" onSubmit={handleSubmit} method="POST">
                         <label>Email</label>
                         <div className="mb-3">
                           <input
@@ -80,7 +71,7 @@ function SignIn() {
                         <label>Password</label>
                         <div className="mb-3">
                           <input
-                            type="email"
+                            type="password"
                             className="form-control"
                             placeholder="Password"
                             aria-label="Password"
@@ -94,9 +85,8 @@ function SignIn() {
 
                         <div className="text-center">
                           <button
-                            type="button"
+                            type="submit"
                             className="btn bg-gradient-info w-100 mt-4 mb-0"
-                            onClick={handleSubmit}
                           >
                             Sign in
                           </button>
