@@ -1,6 +1,37 @@
 import logo from "../assets/img/logo-ct.png";
+import { useState, useEffect } from "react";
+import {jwtDecode} from 'jwt-decode';
 
 function NavHome() {
+  // Remplace ceci par la logique réelle pour vérifier si l'utilisateur est connecté
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const getAuthToken = () => {
+      const token = localStorage.getItem('token');
+  
+      if (token) {
+          const decodedToken = jwtDecode(token);
+  
+          // Vérifiez si le token a expiré
+          if (decodedToken.exp * 1000 < Date.now()) {
+              localStorage.removeItem('token');
+              return null;
+          }
+  
+          return `Bearer ${token.substring(1, token.lastIndexOf('"'))}`;
+      }
+  
+      return null;
+  };
+  const token = getAuthToken();
+  if (token) {
+      setIsLoggedIn(true);
+  }else{
+      setIsLoggedIn(false);
+  }
+  }, []);
+
   return (
     <>
       <nav
@@ -10,7 +41,7 @@ function NavHome() {
         <div className="container">
           <a className="navbar-brand text-uppercase" href="/">
             <img className="logo-light" src={logo} alt="" height="25" />{" "}
-            <bold>.FreeHome</bold>
+            <bold>FreeHome</bold>
             <img
               className="logo-dark"
               src="images/logo-dark.png"
@@ -34,18 +65,18 @@ function NavHome() {
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <ul className="navbar-nav mx-auto" id="navbar-navlist">
               <li className="nav-item">
-                <a className="nav-link active" href="#home">
+                <a className="nav-link active" href="/">
                   Accueil
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#features">
-                  Objectif
+                <a className="nav-link" href="/publier">
+                  Publier Annonces
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#review">
-                  Fonctionnalites
+                <a className="nav-link" href="/chat">
+                  Tchat
                 </a>
               </li>
               <li className="nav-item">
@@ -60,20 +91,46 @@ function NavHome() {
               </li>
             </ul>
 
-            <a href="/signIn">
-              <button
-                type="button"
-                className="btn btn-primary nav-btn"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModalLong"
-              >
-                Connexion
-              </button>
-            </a>
+            {isLoggedIn ? (
+              <div className="btn-group ms-3">
+                <button
+                  type="button"
+                  className="btn btn-primary dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Profil
+                </button>
+                <ul className="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <a className="dropdown-item" href="/profile">
+                      Mon Profil
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="/logout">
+                      Déconnexion
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <a href="/signIn">
+                <button
+                  type="button"
+                  className="btn btn-primary nav-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModalLong"
+                >
+                  Connexion
+                </button>
+              </a>
+            )}
           </div>
         </div>
       </nav>
     </>
   );
 }
+
 export default NavHome;
