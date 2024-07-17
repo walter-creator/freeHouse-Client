@@ -13,11 +13,11 @@ function SectionHome(){
                                 </h1>
                             </div>
                                 <p className="text-white-50 fs-20">Explorer les differentes possibilite  dans tous le pays, 
-                                toutes les villes et chaque quartier en 5 min tout en buvant du cafe, c'est desormais possible </p>
-                                <div class="container mt-3">
-                                    <div class="search-bar">
+                                toutes les villes et chaque quartier en 5 min tout en buvant du cafe, cest desormais possible </p>
+                                <div className="container mt-3">
+                                    <div className="search-bar">
                                     <input type="text" placeholder="rechercher une ville..."/>
-                                    <button type="button"><i class="fas fa-search"></i></button>
+                                    <button type="button"><i className="fas fa-search"></i></button>
                                     </div>
                                 </div>
                         </div>

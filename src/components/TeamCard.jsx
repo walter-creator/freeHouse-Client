@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import chamb1 from  "../assets/img/chambre/chambre1.jpg";
+import   "../assets/img/chambre/chambre2.jpg";
+import  "../assets/img/chambre/chambre3.jpg";
+import   "../assets/img/chambre/chambre4.jpg";
+import  "../assets/img/chambre/chambre5.jpg";
 import {
   faHeart,
   faMessage,
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 
+// eslint-disable-next-line react/prop-types
 function TeamCard({ titre, prix, img }) {
   const [isClicked, setIsClicked] = useState(false);
-
+ 
   const handleClick = () => {
     setIsClicked(!isClicked);
   };
@@ -17,7 +23,7 @@ function TeamCard({ titre, prix, img }) {
     <>
       <div className="team-card">
         <div className="team-card-img">
-          <img className="img-fluid" src={img} alt="image" />
+          <img className="img-fluid" src={chamb1} alt="image" />
           <div className="team-social-icons">
             <ul className="list-inline">
               <li className="list-inline-item">

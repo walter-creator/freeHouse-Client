@@ -2,10 +2,11 @@
 import "../assets/homeCss/aos.css"
 import "../assets/homeCss/style.css";
 import "../assets/lib/lightbox/css/lightbox.min.css";
-import NavHome from "../layouts/NavHome";
+// import NavHome from "../layouts/NavHome";
 import SectionHome from "../components/SectionHome";
 import SectionTeam from "../components/SectionTeam";
 import SectionFooter from "../components/SectionFooter";
+import Header from "../acceuil/header";
 
 
 
@@ -14,8 +15,8 @@ function Home() {
 
   return (
     <> 
-    <NavHome/>
-    {/* <Navbar/> */}
+    {/* <NavHome/> */}
+    <Header/>
     <div className="overflow-hidden-x">
         <SectionHome/>
         <div className="container-fluid">

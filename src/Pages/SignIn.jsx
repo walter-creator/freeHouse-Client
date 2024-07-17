@@ -4,7 +4,7 @@ import imageUrl from "../assets/img/hotel/hotel12.jpg";
 import SignNav from "../layouts/SignNav";
 import { useState } from "react";
 import { useLocalStorage } from "@uidotdev/usehooks";
-import { useMutation } from "react-query";
+// import { useMutation } from "react-query";
 import {signin} from "../api";
 
 function SignIn() {
@@ -17,6 +17,7 @@ function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 //   const [error, setError] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [token, setToken] = useLocalStorage("token", null);
 
 

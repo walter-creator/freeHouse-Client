@@ -1,11 +1,7 @@
-// src/components/Slideshow.js
-import React, { useState } from 'react';
-import Slide from './Slide';
-import Thumbnail from './Thumbnail';
+
 
 
 //images 
-import marie from "../assets/img/marie.jpg";
 import home from "../assets/img/home-decor-1.jpg";
 import home2 from "../assets/img/home-decor-2.jpg";
 import home3 from "../assets/img/home-decor-3.jpg";

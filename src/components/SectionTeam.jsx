@@ -1,6 +1,13 @@
 
-import TeamCard from "./TeamCard";
 import { listLogements } from "../api";
+import '../vendor/bootstrap/css/bootstrap.min.css';
+import '../assets/css/templatemo-villa-agency.css';
+import '../assets/css/fontawesome.css';
+import '../assets/css/flex-slider.css';
+import '../assets/css/owl.css';
+import '../assets/css/animate.css';
+import '../acceuil/Icons.css';
+import Categories from '../acceuil/Icons';
 
 
 import  { useState, useEffect } from 'react';
@@ -25,9 +32,12 @@ const FilterButtons = ({ filterSelection, activeFilter }) => {
   );
 };
 
-// eslint-disable-next-line react/prop-types
+// eslint-disable-next-line react/prop-types, no-unused-vars
 const FilterableContainer = ({ activeFilter }) => {
   const [items, setItems] = useState([]);
+  const [filteredProperties, setFilteredProperties] = useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   // get all logements and for each logement get all medias
   useEffect(() => {
@@ -36,6 +46,7 @@ const FilterableContainer = ({ activeFilter }) => {
         logement.medias = logement.medias.map((media) => media.lien);
       })
       setItems(data);
+      setFilteredProperties(data);
       console.log(data);
     });
   }, []);
@@ -44,23 +55,50 @@ const FilterableContainer = ({ activeFilter }) => {
 
   
 
+  const handleSelectCategory = (genre) => {
+    setSelectedCategory(genre);
+    if (genre === '') {
+      setFilteredProperties(items);
+    } else {
+      const filtered = items.filter(property => property.genre === genre);
+      if(filtered.length === 0){
+        setFilteredProperties(items);
+      }else{
+        setFilteredProperties(filtered);
+      }
+     
+    }
+  };
+
   return (
-    <div className="contain">
-      {items.map((item, index) => {
-        const shouldShow = activeFilter === 'Tout' || item.genre.includes(activeFilter);
-        return (
-            
-        <div key={index}
-            className={`col-lg-3 col-sm-6 filterDiv ${shouldShow ? 'show' : ''}`}
-        >
-            <TeamCard
-            titre = {item.titre}
-            img={item.medias[0]}
-            prix={item.prix}
-        />
+    <div className="section properties">
+      <div className="container">
+        <Categories onSelectCategory={handleSelectCategory} />
+        <div className="row properties-box">
+          {filteredProperties.map((property, index) => (
+            <div key={index} className="col-lg-4 col-md-6 align-self-center mb-30 properties-items">
+              <div className="item">
+                <a href="/detail">
+                  <img src={property.medias[0]} alt={property.genre} />
+                </a>
+                <span className="category">{property.genre}</span>
+                <h6>{property.prix} month</h6>
+                <h4><a href="property-details.html">{property.localisation}</a></h4>
+                <ul>
+                  <li>Bedrooms: <span>{property.chambre}</span></li>
+                  <li>Bathrooms: <span>{property.douche}</span></li>
+                  <li>Area: <span>{property.salon}</span></li>
+                  <li>Floor: <span>{property.cuisine}</span></li>
+                  <li>Parking: <span>{property.parking}</span></li>
+                </ul>
+                <div className="main-button">
+                  <a href="property-details.html">Visit Now</a>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-        );
-      })}
+      </div>
     </div>
   );
 };
