@@ -78,7 +78,7 @@ const Header = () => {
                         </a>
                       </li>
                       <li>
-                        <a href="/logout">
+                        <a href="/" onClick={() => localStorage.removeItem("token")}>
                           <i className="fa fa-sign-out-alt"></i> Déconnexion
                         </a>
                       </li>

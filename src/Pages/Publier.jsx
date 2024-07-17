@@ -42,7 +42,7 @@ function Publier() {
     localisation: "",
     prix: 0,
     userId: 1,
-    mediaIds: [1, 2, 3, 4, 5],
+    mediaLinks: [],
   });
 
   const handleOptionChange = (event) => {
@@ -65,10 +65,14 @@ function Publier() {
     console.log(savedLogement);
     window.location.href = "/";
   };
+  //file upload
 
   const handleFilesAdded = (newFiles) => {
-    const  url = newFiles.map((file) => URL.createObjectURL(file));
-    setLogement({ ...logement, mediaIds: [...logement.mediaIds, ...url] });
+    // const  url = newFiles.map((file) => URL.createObjectURL(file));
+    const name = newFiles.map((file) => file.name);
+    const imageUrl = `../src/assets/images/${name}`;
+    const linkList = logement.mediaLinks.push(imageUrl);
+    setLogement({ ...logement, mediaLinks: [...logement.mediaLinks, ...linkList] });
   };
 
   // const numberOptions = Array.from({ length: 7 }, (_, i) => i);
@@ -309,6 +313,15 @@ function Publier() {
                 <MenuItem value="Ultra-Moderne">Ultra-Moderne</MenuItem>
               </Select>
             </FormControl>
+            <TextField
+              fullWidth
+              margin="normal"
+              label="Prix"
+              name="prix"
+              placeholder="Prix / mois"
+              value={logement.prix}
+              onChange={handleChange}
+            />
             <TextField
               fullWidth
               margin="normal"
