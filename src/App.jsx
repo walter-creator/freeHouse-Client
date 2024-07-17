@@ -8,6 +8,7 @@ import Discussion from "./Pages/Discussion";
 import Details from "./Pages/Details";
 import Home from "./Pages/Home";
 import Publier from "./Pages/Publier";
+import AppartementForm from "./components/AppartementForm";
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/searchResult" element={<SearchResult />} />
             <Route path="/chat" element={<Discussion />} />
             <Route path="/detail" element={<Details />} />
+            <Route path="/form" element={<AppartementForm />} />
           </Routes>
     </BrowserRouter>
       

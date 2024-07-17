@@ -13,7 +13,7 @@ import Categories from '../acceuil/Icons';
 import  { useState, useEffect } from 'react';
 
 
-// eslint-disable-next-line react/prop-types
+// eslint-disable-next-line react/prop-types, no-unused-vars
 const FilterButtons = ({ filterSelection, activeFilter }) => {
   const buttons = ['Tout', 'Appartement', 'Chambre', 'Studio', 'Services'];
 
@@ -106,6 +106,7 @@ const FilterableContainer = ({ activeFilter }) => {
 const SectionTeam = () => {
   const [activeFilter, setActiveFilter] = useState('Tout');
 
+  // eslint-disable-next-line no-unused-vars
   const filterSelection = (filter) => {
     setActiveFilter(filter);
   };
@@ -127,7 +128,7 @@ const SectionTeam = () => {
                 </div>
                 
                 <div className="row gy-4">
-                    <FilterButtons filterSelection={filterSelection} activeFilter={activeFilter} />
+                    {/* <FilterButtons filterSelection={filterSelection} activeFilter={activeFilter} /> */}
                     <FilterableContainer activeFilter={activeFilter} />
                 </div>
             </div>

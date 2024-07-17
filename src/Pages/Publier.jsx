@@ -31,46 +31,44 @@ function Publier() {
 
   // cette partie est dedie a la gestion des choix
   const [selectedOption, setSelectedOption] = useState("");
-  const [values, setValues] = useState({
-    chambre: 0,
-    cuisine: 0,
-    salon: 0,
-    douche: 0,
-  });
-  const [formData, setFormData] = useState({
+  const [logement, setLogement] = useState({
     genre: "",
     titre: "",
     description: "",
-    standing: "",
-    prix: 0,
+    salon: 0,
+    cuisine: 0,
+    chambre: 0,
+    douche: 0,
     localisation: "",
+    prix: 0,
     userId: 1,
-    ...values,
+    mediaIds: [1, 2, 3, 4, 5],
   });
 
   const handleOptionChange = (event) => {
     const choice = event.target.value;
     setSelectedOption(choice);
-
+    //set genre of logement with choice
+    setLogement({ ...logement, genre: choice });
   };
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setValues({
-      ...values,
-      [name]: Number(value),
-    });
-  };
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setLogement({ ...logement, [name]: value });
+  };
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(logement);
+    const savedLogement = await saveLogement(logement);
+    console.log(savedLogement);
+    window.location.href = "/";
   };
 
   const handleFilesAdded = (newFiles) => {
-    setFormData({ ...formData, medias: [...formData.medias, ...newFiles.path] });
+    const  url = newFiles.map((file) => URL.createObjectURL(file));
+    setLogement({ ...logement, mediaIds: [...logement.mediaIds, ...url] });
   };
 
   // const numberOptions = Array.from({ length: 7 }, (_, i) => i);
@@ -86,14 +84,6 @@ function Publier() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formData);
-    await saveLogement({...values});
-    window.location.href = "/profile";
-  };
 
   const getStepContent = (step) => {
     switch (step) {
@@ -111,8 +101,8 @@ function Publier() {
                     <input
                       type="radio"
                       name="genre"
-                      value="chambre"
-                      checked={selectedOption === "chambre"}
+                      value="Chambre"
+                      checked={selectedOption === "Chambre"}
                       onChange={handleOptionChange}
                     />
                     <div className="checkmark">
@@ -133,8 +123,8 @@ function Publier() {
                   <input
                     type="radio"
                     name="genre"
-                    value="studio"
-                    checked={selectedOption === "studio"}
+                    value="Studio"
+                    checked={selectedOption === "Studio"}
                     onChange={handleOptionChange}
                   />
                   <div className="checkmark">
@@ -155,9 +145,9 @@ function Publier() {
                   <label className="choice float-end">
                     <input
                       type="radio"
-                      value="appartement"
+                      value="Appartement"
                       name="genre"
-                      checked={selectedOption === "appartement"}
+                      checked={selectedOption === "Appartement"}
                       onChange={handleOptionChange}
                     />
                     <div className="checkmark">
@@ -179,7 +169,7 @@ function Publier() {
       case 1:
         return (
           <Box component="form" noValidate autoComplete="off" className="mt-3">
-            {selectedOption === "appartement" && (
+            {selectedOption === "Appartement" && (
               <div>
                 <div>
                   <FormControl fullWidth margin="normal">
@@ -187,8 +177,8 @@ function Publier() {
                     <Input
                       type="number"
                       name="chambre"
-                      value={values.chambre}
-                      onChange={handleInputChange}
+                      value={logement.chambre}
+                      onChange={handleChange}
                     />
                   </FormControl>
                 </div>
@@ -198,8 +188,8 @@ function Publier() {
                     <Input
                       type="number"
                       name="cuisine"
-                      value={values.cuisine}
-                      onChange={handleInputChange}
+                      value={logement.cuisine}
+                      onChange={handleChange}
                     />
                   </FormControl>
                 </div>
@@ -209,8 +199,8 @@ function Publier() {
                     <Input
                       type="number"
                       name="salon"
-                      value={values.salon}
-                      onChange={handleInputChange}
+                      value={logement.salon}
+                      onChange={handleChange}
                     />
                   </FormControl>
                 </div>
@@ -220,15 +210,15 @@ function Publier() {
                     <Input
                       type="number"
                       name="douche"
-                      value={values.douche}
-                      onChange={handleInputChange}
+                      value={logement.douche}
+                      onChange={handleChange}
                     />
                   </FormControl>
                 </div>
               </div>
             )}
 
-            {selectedOption === "studio" && (
+            {selectedOption === "Studio" && (
               <div>
                 <div>
                   <FormControl fullWidth margin="normal">
@@ -236,8 +226,8 @@ function Publier() {
                     <Input
                       type="number"
                       name="cuisine"
-                      value={values.cuisine}
-                      onChange={handleInputChange}
+                      value={logement.cuisine}
+                      onChange={handleChange}
                     />
                   </FormControl>
                 </div>
@@ -247,15 +237,15 @@ function Publier() {
                     <Input
                       type="number"
                       name="douche"
-                      value={values.douche}
-                      onChange={handleInputChange}
+                      value={logement.douche}
+                      onChange={handleChange}
                     />
                   </FormControl>
                 </div>
               </div>
             )}
 
-            {selectedOption === "chambre" && (
+            {selectedOption === "Chambre" && (
               <div>
                 <div>
                   <FormControl fullWidth margin="normal">
@@ -263,8 +253,8 @@ function Publier() {
                     <Input
                       type="number"
                       name="cuisine"
-                      value={values.cuisine}
-                      onChange={handleInputChange}
+                      value={logement.cuisine}
+                      onChange={handleChange}
                     />
                   </FormControl>
                 </div>
@@ -274,8 +264,8 @@ function Publier() {
                     <Input
                       type="number"
                       name="douche"
-                      value={values.douche}
-                      onChange={handleInputChange}
+                      value={logement.douche}
+                      onChange={handleChange}
                     />
                   </FormControl>
                 </div>
@@ -292,7 +282,7 @@ function Publier() {
               label="titre"
               name="titre"
               placeholder=" Ex: cite tchofong"
-              value={values.titre}
+              value={logement.titre}
               onChange={handleChange}
             />
             <TextField
@@ -301,14 +291,14 @@ function Publier() {
               label="localisation"
               name="localisation"
               placeholder="ville - quartier"
-              value={values.localisation}
+              value={logement.localisation}
               onChange={handleChange}
             />
             <FormControl fullWidth margin="normal">
               <InputLabel>Standing</InputLabel>
               <Select
                 name="standing"
-                value={values.standing}
+                value={logement.standing}
                 onChange={handleChange}
               >
                 <MenuItem value="">
@@ -327,7 +317,7 @@ function Publier() {
               placeholder="Decrivez ici en quelques mot votre logement, ses environs ses atouts et meme potentiellement son reglement "
               multiline
               rows={4}
-              value={values.description}
+              value={logement.description}
               onChange={handleChange}
             />
           </Box>
@@ -364,15 +354,16 @@ function Publier() {
             </Typography>
           ) : (
             <div>
-              {getStepContent(activeStep)}
-              <Box display="flex" justifyContent="space-between" mt={2}>
+              <form action="" method="post" onSubmit={handleSubmit}>
+                {getStepContent(activeStep)}
+                <Box display="flex" justifyContent="space-between" mt={2}>
                 <Button disabled={activeStep === 0} onClick={handleBack}>
                   Back
                 </Button>
                 <Button
                   variant="contained"
                   color="primary"
-                  type={activeStep === steps.length - 1 ? "submit" : "button"}
+                  type={activeStep === steps.length ? "submit" : "button"}
                   onClick={
                     activeStep === steps.length - 1 ? handleSubmit : handleNext
                   }
@@ -380,6 +371,8 @@ function Publier() {
                   {activeStep === steps.length - 1 ? "Submit" : "Next"}
                 </Button>
               </Box>
+              </form>
+              
             </div>
           )}
         </div>
