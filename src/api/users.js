@@ -32,6 +32,19 @@ export async function saveUser(data) {
         return Promise.reject(error);
     }
 }
+// fonction pour obtenir un utilisateur par email get email in  request body
+export async function getUserByEmail(email) {
+    //use fetsh without auth
+    try {
+        const response = await fetch(`${API_URL}/api/users/email/${email}`);
+        const user = await response.json();
+        if (!response.ok) return Promise.reject(response);
+        return user;
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}
+
 
 // Fonction pour obtenir un utilisateur par ID
 export async function getUser(id) {

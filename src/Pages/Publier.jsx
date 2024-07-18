@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Stepper,
   Step,
@@ -31,6 +31,7 @@ function Publier() {
 
   // cette partie est dedie a la gestion des choix
   const [selectedOption, setSelectedOption] = useState("");
+  const [user, setUser] = useState({});
   const [logement, setLogement] = useState({
     genre: "",
     titre: "",
@@ -41,9 +42,18 @@ function Publier() {
     douche: 0,
     localisation: "",
     prix: 0,
-    userId: 1,
+    userId: '',
     mediaLinks: [],
   });
+  useEffect(() => {
+    const getUserId = async () => {
+      const user = localStorage.getItem("user");
+      setUser(JSON.parse(user));
+      const id = JSON.parse(user).id;
+      setLogement({ ...logement, userId: id });
+    };
+    getUserId();
+  }, []);
 
   const handleOptionChange = (event) => {
     const choice = event.target.value;
@@ -57,10 +67,10 @@ function Publier() {
     setLogement({ ...logement, [name]: value });
   };
 
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(logement);
+    console.log(user);
     const savedLogement = await saveLogement(logement);
     console.log(savedLogement);
     window.location.href = "/";
@@ -68,7 +78,6 @@ function Publier() {
   //file upload
 
   const handleFilesAdded = (newFiles) => {
-    // const  url = newFiles.map((file) => URL.createObjectURL(file));
     const name = newFiles.map((file) => file.name);
     const imageUrl = `../src/assets/images/${name}`;
     const linkList = logement.mediaLinks.push(imageUrl);
@@ -109,6 +118,7 @@ function Publier() {
                       checked={selectedOption === "Chambre"}
                       onChange={handleOptionChange}
                     />
+                    {/* <input type="hidden" value={logement.userId} name="userId" onChange={handleChange} /> */}
                     <div className="checkmark">
                       <div className="d-flex justify-content-center align-items-center m-4">
                         <i

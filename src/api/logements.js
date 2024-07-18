@@ -5,7 +5,7 @@ import fetchWithAuth from "./http";
 // Fonction pour obtenir la liste des logements
 export async function listLogements() {
     try {
-        const response = await fetchWithAuth(`${API_URL}/api/logements`);
+        const response = await fetch(`${API_URL}/api/logements`);
         const logements = await response.json();
         if (!response.ok) return Promise.reject(response);
         return logements;

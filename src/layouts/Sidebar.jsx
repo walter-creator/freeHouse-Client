@@ -1,13 +1,11 @@
-import React from 'react';
-import logoct from "../assets/img/logo-ct.png";
 import '../assets/css/soft-ui-dashboard.css';
 import '../assets/css/nucleo-icons.css';
-import { FaTimes, FaGem } from 'react-icons/fa';
+import {  FaGem } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolderPlus, faRocket,faHouseLaptop, faMagnifyingGlassLocation, faComments, faIdCard,faRightToBracket } from '@fortawesome/free-solid-svg-icons'
 // import { FontAwesomeIcon } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 
+// eslint-disable-next-line react/prop-types
 const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
   
   a1 = a1+" nav-link"; a2 = a2+" nav-link"; a3 = a3+" nav-link"; a4 = a4+" nav-link";  a5 = a5+" nav-link";
@@ -19,7 +17,6 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
       <div className="sidenav-header"> 
         <i className="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
         <div className="navbar-brand m-0">
-          <img src={logoct} className="navbar-brand-img h-100" alt="main_logo" />
           <span className="ms-1 font-weight-bold">FreeHouse</span>
         </div>
       </div>
@@ -89,7 +86,7 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
           </a>
         </li>
         <li className="nav-item">
-          <a className={a8} href="SignUp">
+          <a className={a8} href="/SignUp">
             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <FontAwesomeIcon icon={faRocket} />
             </div>

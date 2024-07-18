@@ -1,4 +1,5 @@
 import "../vendor/bootstrap/css/bootstrap.min.css";
+import "../vendor/bootstrap/js/bootstrap.min.js";
 import "../assets/css/templatemo-villa-agency.css";
 import "../assets/css/fontawesome.css";
 import "../assets/css/flex-slider.css";

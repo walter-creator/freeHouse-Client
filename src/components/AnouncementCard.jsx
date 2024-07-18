@@ -10,6 +10,7 @@ function AnouncementCard({ titre, type, desc, img }) {
                 src={img}
                 alt="img-blur-shadow"
                 className="img-fluid shadow border-radius-xl"
+                style={{maxHeight:"250px"}}
               />
             </a>
           </div>
@@ -35,7 +36,6 @@ function AnouncementCard({ titre, type, desc, img }) {
                   Edit
                 </a>
               </div>
-              signIn
             </div>
           </div>
         </div>

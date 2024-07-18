@@ -78,12 +78,12 @@ const FilterableContainer = ({ activeFilter }) => {
           {filteredProperties.map((property, index) => (
             <div key={index} className="col-lg-4 col-md-6 align-self-center mb-30 properties-items">
               <div className="item">
-                <a href="/detail">
-                  <img src={property.medias[0]} alt={property.genre} />
+                <a href="/detail" >
+                  <img src={property.medias[0]} alt={property.genre} style={{maxHeight:"200px"}} />
                 </a>
                 <span className="category">{property.genre}</span>
-                <h6>{property.prix} month</h6>
-                <h4><a href="property-details.html">{property.localisation}</a></h4>
+                <h6>{property.prix} FCFA/ mois</h6>
+                <h4><a href="/detail">{property.localisation}</a></h4>
                 <ul>
                   <li>Bedrooms: <span>{property.chambre}</span></li>
                   <li>Bathrooms: <span>{property.douche}</span></li>
@@ -92,7 +92,7 @@ const FilterableContainer = ({ activeFilter }) => {
                   <li>Parking: <span>{property.parking}</span></li>
                 </ul>
                 <div className="main-button">
-                  <a href="property-details.html">Visit Now</a>
+                  <a href="/discussion">Contacter Maintenant</a>
                 </div>
               </div>
             </div>

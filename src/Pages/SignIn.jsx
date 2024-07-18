@@ -5,7 +5,7 @@ import SignNav from "../layouts/SignNav";
 import { useState } from "react";
 import { useLocalStorage } from "@uidotdev/usehooks";
 // import { useMutation } from "react-query";
-import {signin} from "../api";
+import {signin, getUserByEmail } from "../api";
 
 function SignIn() {
   const divStyle = {
@@ -19,6 +19,8 @@ function SignIn() {
 //   const [error, setError] = useState("");
   // eslint-disable-next-line no-unused-vars
   const [token, setToken] = useLocalStorage("token", null);
+  // eslint-disable-next-line no-unused-vars
+  const [user, setUser] = useLocalStorage("user", null);
 
 
 
@@ -27,6 +29,9 @@ function SignIn() {
     event.preventDefault();
     console.log({ email, password });
     const response = await signin({ email, password });
+    const user = await getUserByEmail(email);
+    console.log(response.token, user );
+    setUser(user);
     setToken(response.token);
     
    // navigate to home page
