@@ -1,7 +1,10 @@
+/* eslint-disable no-unused-vars */
 import '../assets/css/soft-ui-dashboard.css';
 import '../assets/css/nucleo-icons.css';
 import {  FaGem } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState, useEffect } from 'react';
+import { jwtDecode } from 'jwt-decode';
 import { faFolderPlus, faRocket,faHouseLaptop, faMagnifyingGlassLocation, faComments, faIdCard,faRightToBracket } from '@fortawesome/free-solid-svg-icons'
 // import { FontAwesomeIcon } from 'react-icons/fa';
 
@@ -10,6 +13,33 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
   
   a1 = a1+" nav-link"; a2 = a2+" nav-link"; a3 = a3+" nav-link"; a4 = a4+" nav-link";  a5 = a5+" nav-link";
   a6 = a6+" nav-link"; a7 = a7+" nav-link"; a8 = a8+" nav-link"; 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const getAuthToken = () => {
+      const token = localStorage.getItem("token");
+
+      if (token) {
+        const decodedToken = jwtDecode(token);
+
+        // Vérifiez si le token a expiré
+        if (decodedToken.exp * 1000 < Date.now()) {
+          localStorage.removeItem("token");
+          return null;
+        }
+
+        return `Bearer ${token.substring(1, token.lastIndexOf('"'))}`;
+      }
+
+      return null;
+    };
+    const token = getAuthToken();
+    if (token) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
   return (  
     <>
     
@@ -43,14 +73,6 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
             </a>
           </li>
           <li className="nav-item">
-            <a className={a3} href="/detail">
-                <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <FaGem className="text-dark text-gradient" />
-                </div>
-                <span className="nav-link-text ms-1">Details</span>
-            </a>
-          </li>
-          <li className="nav-item">
             <a className={a4} href='chat' >
               <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <FontAwesomeIcon icon={faComments} />
@@ -77,22 +99,14 @@ const Sidebar = ({a1="",a2="",a3="",a4="",a5="",a6="",a7="",a8=""}) => {
             <span className="nav-link-text ms-1">Profile</span>
           </a>
         </li>
-        <li className="nav-item">
-          <a className={a7} href="/signIn">
+       {isLoggedIn &&  <li className="nav-item">
+          <a className={a7} href="/" onClick={() => localStorage.removeItem("token")}>
             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <FontAwesomeIcon icon={faRightToBracket} />
             </div>
-            <span className="nav-link-text ms-1">Sign In</span>
+            <span className="nav-link-text ms-1">Se decconnecter</span>
           </a>
-        </li>
-        <li className="nav-item">
-          <a className={a8} href="/SignUp">
-            <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-            <FontAwesomeIcon icon={faRocket} />
-            </div>
-            <span className="nav-link-text ms-1">Sign Up</span>
-          </a>
-        </li>
+        </li>}
         </ul>
       </div>
 

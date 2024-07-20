@@ -1,9 +1,8 @@
 import  { useMemo } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { useSearchParams } from 'react-router-dom';
-import useSearchModal from '@/hooks/useSearchModal';
-import useCountries from '@/hooks/useCountries';
-
+import useSearchModal from '@/app/hooks/useSearchModal';
+import useCountries from '@/app/hooks/useCountries';
 const SearchBar = () => {
   const searchModal = useSearchModal();
   const params = useSearchParams();

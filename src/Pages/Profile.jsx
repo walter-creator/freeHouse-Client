@@ -1,6 +1,11 @@
+/* eslint-disable no-unused-vars */
 // import React from "react";
 import Sidebar from "../layouts/Sidebar";
 import "../assets/css/style.css";
+import Box from "@mui/material/Box";
+import { DataGrid } from "@mui/x-data-grid";
+import { Delete, Edit } from "@mui/icons-material";
+import Chip from "@mui/material/Chip";
 
 import { useEffect, useState } from "react";
 import { getAllLogementsByUserId } from "../api";
@@ -10,10 +15,80 @@ import bruce from "../assets/img/bruce-mars.jpg";
 import kal from "../assets/img/kal-visuals-square.jpg";
 
 import Anonce from "../components/AnouncementCard";
+import { Typography } from "@mui/material";
+import AlertDialog from "../components/AlertDialog";
+
+const columns = [
+  { field: "id", headerName: "ID", width: 90 },
+  {
+    field: "titre",
+    headerName: "Titre",
+    width: 150,
+    editable: true,
+  },
+  {
+    field: "genre",
+    headerName: "Genre",
+    width: 150,
+    editable: true,
+  },
+  {
+    field: "description",
+    headerName: "Description",
+    width: 200,
+    editable: true,
+  },
+  {
+    field: "adminValid",
+    headerName: "Status",
+    description: "This column has a value getter and is not sortable.",
+    //insert button here
+    sortable: false,
+    width: 180,
+    renderCell: (params) => (
+      <Chip
+        label={params.value ? "Valider" : "En cours de validation"}
+        color={params.value ? "success" : "warning"}
+      />
+      
+    ),
+  },
+  {
+    field: "delate",
+    type: "delate",
+    headerName: "Supprimer",
+    width: 150,
+    renderCell: (params) => (
+      <AlertDialog
+        title="Supprimmer l'annonce"
+        message="ete vous sur de cette action ?"
+        buttonLabel="supprimer"
+        buttonColor="error"
+        buttonIcon={<Delete />}
+      ></AlertDialog>
+    ),
+  },
+  {
+    field: "edit",
+    type: "edit",
+    headerName: "Modifier",
+    width: 150,
+    renderCell: (params) => (
+      <AlertDialog
+        title="Modifier l'annonce "
+        message="ete vous sur de cette action ?"
+        buttonLabel="supprimer"
+        buttonColor="warning"
+        buttonIcon={<Edit />}
+      ></AlertDialog>
+    ),
+  },
+];
 
 function Profile() {
   const [user, setUser] = useState({});
   const [logements, setLogements] = useState([]);
+  const [rows, setRow] = useState({});
 
   useEffect(() => {
     const getUser = async () => {
@@ -29,6 +104,7 @@ function Profile() {
         logement.medias = logement.medias.map((media) => media.lien);
       });
       setLogements(data);
+      setRow(data);
       console.log(data);
     });
   }, [user]);
@@ -187,12 +263,13 @@ function Profile() {
                   <div className="card-body p-3">
                     <div className="row">
                       {logements.map((logement, index) => (
-                          <Anonce key={index}
-                            titre={logement.titre}
-                            type={logement.genre}
-                            desc={logement.description}
-                            img={logement.medias[0]}
-                          />
+                        <Anonce
+                          key={index}
+                          titre={logement.titre}
+                          type={logement.genre}
+                          desc={logement.description}
+                          img={logement.medias[0]}
+                        />
                       ))}
                       <div className="col-xl-3 col-md-6 mb-xl-0 mb-4">
                         <div className="card h-100 card-plain border">
@@ -213,6 +290,24 @@ function Profile() {
               </div>
             </div>
           </div>
+          <Typography variant="h6">Annonce en cours de Validations</Typography>
+          {/* data grid her */}
+          <Box sx={{ height: 400, width: "100%", marginBottom: "20px" }}>
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              initialState={{
+                pagination: {
+                  paginationModel: {
+                    pageSize: 5,
+                  },
+                },
+              }}
+              pageSizeOptions={[5]}
+              checkboxSelection
+              disableRowSelectionOnClick
+            />
+          </Box>
         </div>
       </main>
     </>

@@ -37,11 +37,11 @@ const Header = () => {
   }, []);
   return (
     <div className="menu">
-      <div className="header-area header-sticky">
-        <div className="container">
+      <div className="header-area header-sticky" style={{ position: "fixed" }}>
+        <div className="container" >
           <div className="row">
             <div className="col-12">
-              <nav className="main-nav">
+              <nav className="main-nav" >
                 <a href="/" className="logo">
                   <h1>FreeHouse</h1>
                 </a>

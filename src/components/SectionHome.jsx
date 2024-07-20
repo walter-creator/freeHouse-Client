@@ -2,7 +2,7 @@ import "../assets/css/Slideshow.css";
 function SectionHome(){
     return(
         <>
-        <section className="section home home-1" id="home">
+        <section className="section home home-1" id="home" style={{marginTop: "2px"}}>
                 <div className="bg-overlay"></div>
                 <div className="container">
                     <div className="row ">

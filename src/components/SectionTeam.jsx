@@ -92,7 +92,7 @@ const FilterableContainer = ({ activeFilter }) => {
                   <li>Parking: <span>{property.parking}</span></li>
                 </ul>
                 <div className="main-button">
-                  <a href="/discussion">Contacter Maintenant</a>
+                  <a href={`/detail/${property.id}`}>Voir+</a>
                 </div>
               </div>
             </div>

@@ -5,9 +5,9 @@ import SignIn from './Pages/SignIn';
 import SignUp from "./Pages/SignUp";
 import SearchResult from "./Pages/SearchResult";
 import Discussion from "./Pages/Discussion";
-import Details from "./Pages/Details";
 import Home from "./Pages/Home";
 import Publier from "./Pages/Publier";
+import PropertyComponent from "./acceuil/PropertyComponent";
 
 function App() {
   const isAuthenticated = !!localStorage.getItem('token');
@@ -24,7 +24,7 @@ function App() {
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/searchResult" element={<SearchResult />} />
             <Route path="/chat" element={isAuthenticated ? <Discussion /> : <Navigate to="/signIn" />} />
-            <Route path="/detail" element={<Details />} />
+            <Route path="/detail/:propertyId" element={<PropertyComponent />} />
           </Routes>
     </BrowserRouter>
       
